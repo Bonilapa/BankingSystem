@@ -1,9 +1,11 @@
 import java.util.List;
 
 public class Bank {
-    
+
     private String name;
-    private List<Client> clients;
+    private List<Client> VIPclients;
+    private List<Client> Goldenlients;
+    private List<Client> RegularClients;
     private List<Account> accounts;
     private long TotalAmountOfMoneyOnAllAccounts;
 
@@ -15,12 +17,28 @@ public class Bank {
         this.name = name;
     }
 
-    public List<Client> getClients() {
-        return clients;
+    public List<Client> getVIPclients() {
+        return VIPclients;
     }
 
-    public void setClients(List<Client> clients) {
-        this.clients = clients;
+    public void setVIPclients(List<Client> VIPclients) {
+        this.VIPclients = VIPclients;
+    }
+
+    public List<Client> getGoldenlients() {
+        return Goldenlients;
+    }
+
+    public void setGoldenlients(List<Client> goldenlients) {
+        Goldenlients = goldenlients;
+    }
+
+    public List<Client> getRegularClients() {
+        return RegularClients;
+    }
+
+    public void setRegularClients(List<Client> regularClients) {
+        RegularClients = regularClients;
     }
 
     public List<Account> getAccounts() {
