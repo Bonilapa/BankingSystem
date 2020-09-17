@@ -3,11 +3,19 @@ import java.util.List;
 public class Bank {
 
     private String name;
-    private List<Client> VIPclients;
-    private List<Client> Goldenlients;
-    private List<Client> RegularClients;
+    private List<Client> VIPClients;
+    private List<Client> goldenClients;
+    private List<Client> regularClients;
     private List<Account> accounts;
     private long TotalAmountOfMoneyOnAllAccounts;
+
+    /*
+     * Bank creates accounts and counts their amount.
+     * It provides unique Id.
+     * Bank stores only 8 bln accounts
+     */
+    private long idCounter;
+
 
     public String getName() {
         return name;

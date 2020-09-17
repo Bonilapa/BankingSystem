@@ -22,13 +22,9 @@ public abstract class Account {
 
     public abstract int Transfer(int amount, int Id);
 
-    public Account(Client owner) {
+    public Account(Client owner, long idCounter) {
 
-        if(idCounter < 0) {
-            throw new RuntimeException(
-                    "IdCounter was incorrectly changed. Malicious interference."
-            );
-        }
+
         this.owner = owner;
         this.totalAmountOfMoney = 0;    //initial 0 money on account
     }
@@ -49,7 +45,4 @@ public abstract class Account {
         return totalAmountOfMoney;
     }
 
-    public void setTotalAmountOfMoney(long totalAmountOfMoney) {
-        this.totalAmountOfMoney = totalAmountOfMoney;
-    }
 }
