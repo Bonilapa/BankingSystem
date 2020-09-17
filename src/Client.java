@@ -2,8 +2,8 @@ import java.util.Date;
 import java.util.List;
 
 public class Client {
-    public LoyaltyLvl loyaltyLvl;
-    public String Name;
+    private LoyaltyLvl loyaltyLvl;
+    private String name;
     public String phoneNumber;
     public Date BirthDate;
     public int Gender;
@@ -14,6 +14,14 @@ public class Client {
 
     public Client(LoyaltyLvl loyaltyLvl) {
         this.loyaltyLvl = loyaltyLvl;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public LoyaltyLvl getLoyaltyLvl(){
+        return loyaltyLvl;
     }
 
 }
