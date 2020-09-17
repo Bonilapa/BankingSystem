@@ -1,4 +1,4 @@
-public class DebitAccount implements Account{
+public class DebitAccount extends Account{
     @Override
     public int Withdraw(int amount) {
         return 0;

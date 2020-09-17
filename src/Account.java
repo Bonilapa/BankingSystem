@@ -1,5 +1,6 @@
-public interface Account {
-    public int Withdraw(int amount);
-    public int Deposit(int amount);
-    public int Transfer(int amount, int Id);
+public abstract class Account {
+    protected long totalAmountOfMoney;
+    public abstract int Withdraw(int amount);
+    public abstract int Deposit(int amount);
+    public abstract int Transfer(int amount, int Id);
 }
