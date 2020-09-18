@@ -3,19 +3,20 @@ public enum LoyaltyLvl {
     Golden(1),
     VIP(0),
     ;
-    private int transferFee;
+    private double transferFee;
 
-    private LoyaltyLvl(int transferFee){
+    private LoyaltyLvl(double transferFee){
         this.transferFee = transferFee;
     }
-    public void setFee(int transferFee) {
+    public void setFee(double transferFee) {
         this.transferFee = transferFee;
     }
+    public double getFee(){ return transferFee;}
 
     public double getFeePercentValue(){
-        return (double) transferFee / 100;
+        return transferFee / 100;
     }
-    public int getFeeNumericValue(){
+    public double getFeeNumericValue(){
         return transferFee;
     }
 }

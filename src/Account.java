@@ -1,12 +1,16 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /*
- * Base class with base fields and operations
+ * Base class with base fields and
+ * operations declared.
  */
 public abstract class Account {
 
-    protected static long idCounter = 0;    //bank only for 8 bln accounts
-
-    protected long Id;
+    protected int Id;
     protected Client owner;
+    protected Bank bank;
+    protected List<String> operationsList;
 
     /*
     * The name is according to the task,
@@ -20,18 +24,18 @@ public abstract class Account {
 
     public abstract int Deposit(int amount);
 
-    public abstract int Transfer(int amount, int Id);
+    public abstract int Transfer(int amount, int clientId, int accountId);
 
-    public Account(Client owner, long idCounter) {
+    public Account(Client owner, int idCounter, Bank bank) {
 
 
+        this.Id = idCounter;
         this.owner = owner;
         this.totalAmountOfMoney = 0;    //initial 0 money on account
+        this.bank = bank;
+        operationsList = new ArrayList<>();
     }
 
-    public static long getIdCounter() {
-        return idCounter;
-    }
 
     public long getId() {
         return Id;
@@ -43,6 +47,37 @@ public abstract class Account {
 
     public long getTotalAmountOfMoney() {
         return totalAmountOfMoney;
+    }
+
+
+    /*
+     * return 0 - ok
+     * return 1 - something gone wrong
+     */
+    public int checkOnPositiveBalance(long amount){
+
+        if(amount >= 0) {
+
+            return 0;
+
+        }else {
+            return 1;
+        }
+    }
+
+    /*
+     * Method checks input amount of money on negative number
+     *
+     * return 0 - ok
+     * return 1 - something gone wrong
+     */
+    protected int checkNotNegativeAmount(int amount){
+        if(amount < 0){
+            new BankException().Warning("A withdraw for negative amount. Malicious interference is possible");
+            return 1;
+        }else{
+            return 0;
+        }
     }
 
 }
